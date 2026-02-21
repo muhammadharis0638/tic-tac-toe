@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, #1a1a2e, #0f0f1a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+      position: relative;
+}
+#reset{
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 13px;
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+     border: 2px solid #00f5ff;
+    box-shadow: 0 0 20px #00f5ff, 0 0 40px #8a2be2;
+    background-color: #00f5ff;
+}
+.game-container{
+    width: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid #00f5ff;
+    box-shadow: 0 0 20px #00f5ff, 0 0 40px #8a2be2;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+
+}
+#showWinner{
+display: none;
+background-color: #0f0f1a;
+color: #fff;
+padding: 10px 30px;
+text-align: center;
+ box-shadow: 0 0 20px #00f5ff, 0 0 40px #8a2be2;
+}
+#showWinner h2{
+    margin: 20px;
+}
+#showWinner p{
+   font-size: 1.4rem;
+}
+#showWinner button{
+    margin-top: 15px;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 13px;
+    cursor: pointer;
+     border: 2px solid #00f5ff;
+    box-shadow: 0 0 20px #00f5ff, 0 0 40px #8a2be2;
+    background-color: #00f5ff;
+}
+.box{
+    min-height: 98.67px;
+    border: 1px solid #8a2be2;
+    font-size: 5rem;
+    text-align: center;
+    font-weight: bolder;
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px #00f5ff,
+        0 0 15px #00f5ff,
+        0 0 25px #8a2be2;
+    transition: all 0.3s ease;
+}
+
+.box:hover{
+    background-color: rgba(0, 245, 255, 0.1);
+    box-shadow: inset 0 0 15px #00f5ff;
+    cursor: pointer;
+}
