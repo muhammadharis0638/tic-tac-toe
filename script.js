@@ -3,7 +3,7 @@ const winnerModal=document.querySelector("#showWinner")
 const resetBtn=document.querySelector("#reset")
 const newGameBtn=document.querySelector("#restart")
 const gameContainer=document.querySelector(".game-container")
-
+const msg =document.querySelector("#msg")
 let turnCounts= 0;
 // game win pattrens
 const pattrens =[
@@ -65,6 +65,7 @@ document.querySelector('.winnerLabel').innerHTML=winner
 
 // New Game
 function  newGame() {
+     msg.innerHTML=`The winner is <strong class='winnerLabel'></strong>`
     turn ='x'
     turnCounts=0
     boxes.forEach((box)=>{
@@ -73,7 +74,7 @@ function  newGame() {
     })
     winnerModal.style.display='none'
     gameContainer.style.display='grid'
-    document.querySelector('.winnerLabel').closest('p').innerHTML=`The winner is <strong class="winnerLabel">X</strong>`
+   
 }
 newGameBtn.addEventListener('click',newGame)
 resetBtn.addEventListener('click',newGame)
@@ -83,5 +84,5 @@ resetBtn.addEventListener('click',newGame)
 function drawGame(){
     winnerModal.style.display='block'
 gameContainer.style.display='none'
-document.querySelector('.winnerLabel').closest('p').innerHTML='The game ended in a draw'
+ msg.innerHTML='draw'
 }
