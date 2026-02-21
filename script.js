@@ -22,7 +22,6 @@ boxes.forEach((box)=>{
         box.innerHTML=turn
         box.style.pointerEvents='none'
         turnCounts++
-        console.log(turnCounts)
         let isWinner=checkForWin();
         if (!isWinner) {
             changeTurn()
@@ -73,7 +72,8 @@ function  newGame() {
         box.style.pointerEvents='auto'
     })
     winnerModal.style.display='none'
-gameContainer.style.display='grid'
+    gameContainer.style.display='grid'
+    document.querySelector('.winnerLabel').closest('p').innerHTML=`The winner is <strong class="winnerLabel">X</strong>`
 }
 newGameBtn.addEventListener('click',newGame)
 resetBtn.addEventListener('click',newGame)
