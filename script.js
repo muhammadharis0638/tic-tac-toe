@@ -22,6 +22,7 @@ boxes.forEach((box)=>{
         box.innerHTML=turn
         box.style.pointerEvents='none'
         turnCounts++
+        console.log(turnCounts)
         let isWinner=checkForWin();
         if (!isWinner) {
             changeTurn()
