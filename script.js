@@ -4,6 +4,8 @@ const resetBtn=document.querySelector("#reset")
 const newGameBtn=document.querySelector("#restart")
 const gameContainer=document.querySelector(".game-container")
 const msg =document.querySelector("#msg")
+
+let board = ["","","","","","","","",""];
 let turnCounts= 0;
 // game win pattrens
 const pattrens =[
@@ -16,15 +18,16 @@ const pattrens =[
         [3, 4, 5],
         [6, 7, 8],
     ]
-let turn ='x'
+
 boxes.forEach((box)=>{
     box.addEventListener('click',()=>{
-        box.innerHTML=turn
+        box.innerHTML='x'
         box.style.pointerEvents='none'
         turnCounts++
         let isWinner=checkForWin();
         if (!isWinner) {
-            changeTurn()
+         computerTurn()
+         checkForWin()
         }
         if(turnCounts === 9 && !isWinner) drawGame()
         
@@ -34,9 +37,21 @@ boxes.forEach((box)=>{
 })
 
 //  change turn 
-function changeTurn(){
-    if(turn === 'x') turn ='o'
-    else turn = 'x'
+ function computerTurn(){
+  
+    let emptyBoxes=[]
+    boxes.forEach((box)=>{
+        if(box.innerHTML == ""){
+            emptyBoxes.push(box)
+        }
+      
+    })
+      if(emptyBoxes.length === 0) return
+   let selectedElement=  emptyBoxes[Math.floor(Math.random()*emptyBoxes.length)]
+    selectedElement.style.pointerEvents='none'
+   selectedElement.innerHTML='o'
+    turnCounts++
+       
 }
 
 // win check
@@ -47,13 +62,16 @@ function checkForWin(){
         let position3=boxes[pattren[2]].innerHTML;
 
         if (position1 !== '' && position2 !== '' && position3 !== '') {
-            if (position1 ===  position2 && position2 === position3 && position3 === position1) {
+
+            if (position1 ==  position2 && position2 == position3 && position3 == position1) {
+               
                 showWinner(position1)
                 return true;
             }
         }
-
+        
     }
+    return false;
 }
 
 // show winner
